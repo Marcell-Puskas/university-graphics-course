@@ -16,6 +16,8 @@ typedef struct Pong
     Ball ball;
     Pad left_pad;
     Pad right_pad;
+    int player1_score;
+    int player2_score;
 } Pong;
 
 /**

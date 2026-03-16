@@ -1,6 +1,9 @@
 #ifndef BALL_H
 #define BALL_H
 
+#define BALL_MIN_RADIUS 5
+#define BALL_MAX_RADIUS 100
+
 /**
  * Ball position and speed
  */
@@ -11,6 +14,8 @@ typedef struct Ball
     float radius;
     float speed_x;
     float speed_y;
+    float angle;
+    float rotation_speed;
 } Ball;
 
 /**

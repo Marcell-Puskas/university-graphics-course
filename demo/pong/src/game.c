@@ -48,10 +48,18 @@ void handle_game_events(Game* game)
                 game->is_running = false;
                 break;
             case SDL_SCANCODE_W:
-                set_left_pad_speed(&(game->pong), -100);
+                set_left_pad_speed(&(game->pong), -300);
                 break;
             case SDL_SCANCODE_S:
-                set_left_pad_speed(&(game->pong), +100);
+                set_left_pad_speed(&(game->pong), +300);
+                break;
+            case SDL_SCANCODE_N:
+                if (game->pong.ball.radius > BALL_MIN_RADIUS)
+                    game->pong.ball.radius -= 5;
+                break;
+            case SDL_SCANCODE_M:
+                if (game->pong.ball.radius < BALL_MAX_RADIUS)
+                    game->pong.ball.radius += 5;
                 break;
             default:
                 break;
@@ -66,6 +74,11 @@ void handle_game_events(Game* game)
             default:
                 break;
             }
+            break;
+        case SDL_MOUSEBUTTONDOWN:
+            SDL_GetMouseState(&x, &y);
+            game->pong.ball.x = (float)x;
+            game->pong.ball.y = (float)y;
             break;
         case SDL_MOUSEMOTION:
             SDL_GetMouseState(&x, &y);
