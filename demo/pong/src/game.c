@@ -1,4 +1,5 @@
 #include "game.h"
+#include "score.h"
 
 #include <GL/gl.h>
 
@@ -103,6 +104,7 @@ void update_game(Game* game)
     game->last_update_time = current_time;
 
     update_pong(&(game->pong), elapsed_time);
+    update_score(game->window, game->pong.player1_score, game->pong.player2_score);
 }
 
 void render_game(Game* game)

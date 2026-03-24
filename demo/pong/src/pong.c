@@ -7,6 +7,8 @@ void init_pong(Pong* pong, int width, int height)
     init_pad(&(pong->left_pad), 0, height, RED_THEME);
     init_pad(&(pong->right_pad), width - 50, height, GREEN_THEME);
     init_ball(&(pong->ball), width / 2, height / 2);
+    pong->player1_score = 0;
+    pong->player2_score = 0;
 }
 
 void update_pong(Pong* pong, double time)
