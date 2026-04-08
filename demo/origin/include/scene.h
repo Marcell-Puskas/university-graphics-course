@@ -23,7 +23,7 @@ void update_scene(Scene* scene, double time);
 /**
  * Render the scene objects.
  */
-void render_scene(const Scene* scene);
+void render_scene(const Scene* scene, const Camera* camera);
 
 /**
  * Draw the origin of the world coordinate system.
@@ -34,5 +34,10 @@ void draw_origin();
  * Draw triangle.
  */
 void draw_triangle();
+
+/**
+ * Draw camera center dot.
+ */
+void draw_center_dot(Camera* c);
 
 #endif /* SCENE_H */

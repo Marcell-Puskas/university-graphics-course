@@ -14,6 +14,7 @@ typedef struct Camera
     vec3 rotation;
     vec3 speed;
     float rotation_speed;
+    float distance;
 } Camera;
 
 /**

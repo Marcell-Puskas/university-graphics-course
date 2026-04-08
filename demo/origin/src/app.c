@@ -178,6 +178,13 @@ void handle_app_events(App* app)
         case SDL_QUIT:
             app->is_running = false;
             break;
+        case SDL_MOUSEWHEEL:
+            if (event.wheel.y > 0 && app->camera.distance < 50) {
+                app->camera.distance++;
+            } else if (event.wheel.y < 0 && app->camera.distance > 0) {
+                app->camera.distance--;
+            }
+            break;
         default:
             break;
         }
@@ -204,7 +211,7 @@ void render_app(App* app)
 
     glPushMatrix();
     set_view(&(app->camera));
-    render_scene(&(app->scene));
+    render_scene(&(app->scene), &(app->camera));
     glPopMatrix();
 
     SDL_GL_SwapWindow(app->window);

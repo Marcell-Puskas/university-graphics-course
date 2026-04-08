@@ -11,10 +11,11 @@ void update_scene(Scene* scene, double time)
     update_sphere(&scene->sphere, time);
 }
 
-void render_scene(const Scene* scene)
+void render_scene(const Scene* scene, const Camera* camera)
 {
     draw_origin();
     draw_triangle();
+    draw_center_dot(camera);
 
     glColor3f(0.5, 0.5, 0.5);
     draw_sphere(&scene->sphere);
@@ -71,6 +72,20 @@ void draw_triangle()
     glVertex3f(0, 1, 0);
     glColor3f(0, 1, 1);
     glVertex3f(0, 0, 1);
+
+    glEnd();
+}
+
+void draw_center_dot(Camera* c)
+{
+    glColor4f(0.5, 0.5, 0.5, 0.5);
+    glPointSize(5.0);
+    
+    glBegin(GL_POINTS);
+    
+    glVertex3f(
+        c->position.x, c->position.y, c->position.z
+    );
 
     glEnd();
 }
