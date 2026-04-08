@@ -40,4 +40,13 @@ void draw_triangle();
  */
 void draw_center_dot(Camera* c);
 
+/**
+ * Draw chess table.
+ */
+void draw_chess_table();
+
+void draw_cylinder(vec3 pos);
+
+void draw_cone(vec3 pos);
+
 #endif /* SCENE_H */
