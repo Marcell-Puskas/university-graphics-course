@@ -15,7 +15,14 @@ void render_scene(const Scene* scene)
 {
     draw_origin();
     draw_triangle();
+
+    glColor3f(0.5, 0.5, 0.5);
     draw_sphere(&scene->sphere);
+    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    glColor3f(0, 0, 0);
+    draw_sphere(&scene->sphere);
+    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
     
     glBegin(GL_QUADS);
 

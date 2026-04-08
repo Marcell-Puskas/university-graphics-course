@@ -4,7 +4,10 @@
 #include "utils.h"
 #include <GL/gl.h>
 
-#define SPHERE_STEP 0.5
+#define _USE_MATH_DEFINES
+#include <math.h>
+
+#define SPHERE_STEP (M_PI / 8)
 
 typedef struct
 {
