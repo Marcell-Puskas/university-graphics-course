@@ -5,7 +5,8 @@
 
 void init_scene(Scene* scene)
 {
-    // load_model(&(scene->car.model), "assets/models/car_body.obj");
+    scene->car = (Car){0};
+    load_model(&(scene->car.model), "assets/models/f1_car.obj");
     // scene->car.texture_id = load_texture("assets/textures/Car.png");
 
     scene->track.texture_id = load_texture("assets/textures/track.jpg");
@@ -14,6 +15,9 @@ void init_scene(Scene* scene)
     scene->cones.texture_id = load_texture("assets/textures/cone.png");
     
     scene->manual_texture = load_texture("assets/textures/manual.png");
+
+    load_model(&(scene->skybox.model), "assets/models/skybox.obj");
+    scene->skybox.texture = load_texture("assets/textures/skybox.png");
 
     read_cones(&scene->cones, "cones.csv");
 }
@@ -34,9 +38,11 @@ void render_scene(const Scene* scene, const Camera* camera)
 
     draw_cones(&scene->cones);
     
-    // draw_car(&scene->car);
+    draw_car(&scene->car);
     
     draw_center_dot(camera);
+
+    draw_skybox(&scene->skybox);
 }
 
 void draw_origin()

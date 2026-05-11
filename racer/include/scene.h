@@ -5,6 +5,7 @@
 #include "track.h"
 #include "cones.h"
 #include "car.h"
+#include "skybox.h"
 #include <GL/gl.h>
 
 typedef struct Scene
@@ -12,6 +13,7 @@ typedef struct Scene
     Car car;
     Track track;
     Cones cones;
+    Skybox skybox;
     GLuint manual_texture;
 } Scene;
 

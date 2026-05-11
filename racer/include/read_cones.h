@@ -1,3 +1,4 @@
+#pragma once
 #include "cones.h"
 
 /// @brief Reads in cones from a file
